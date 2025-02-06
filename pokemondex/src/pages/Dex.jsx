@@ -1,11 +1,11 @@
 import React from "react";
-import { Wrapper, Text } from "../styles/commonStyles.js";
+import { CenterContainer, Text } from "../styles/commonStyles.js";
 
 const Dex = () => {
   return (
-    <Wrapper>
+    <CenterContainer>
       <Text>Dex</Text>
-    </Wrapper>
+    </CenterContainer>
   );
 };
 

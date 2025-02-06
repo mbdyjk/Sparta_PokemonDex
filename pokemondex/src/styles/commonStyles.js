@@ -1,7 +1,7 @@
 // commonStyles.js
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const CenterContainer = styled.div`
   display: flex;
   justify-content: center; // 수평 중앙 정렬
   align-items: center; // 수직 중앙 정렬
