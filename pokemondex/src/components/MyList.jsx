@@ -6,7 +6,7 @@ const MyListContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #e6e6e6;
+  background-color: #f6f6f6;
   border-radius: 5px;
   padding: 20px;
 `;
@@ -31,15 +31,16 @@ const Slot = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 100px;
-  border: 2px dashed lightgray;
+  border: 2.5px dashed lightgray;
   border-radius: 5px;
   flex: 1 1 ${({ count }) => `calc(100%/${count})`};
   aspect-ratio: 1;
+  background-color: white;
 `;
 
 const Pokeball = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 `;
 
 const MyList = () => {

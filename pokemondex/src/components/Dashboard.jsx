@@ -5,6 +5,7 @@ import PokemonList from "./PokemonList.jsx";
 
 const DashboardContainer = styled.div`
   padding: 20px;
+  background: #f7e5be;
 `;
 
 const Dashboard = () => {
