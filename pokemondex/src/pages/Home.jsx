@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { CenterContainer, Text } from "../styles/commonStyles.js";
+import { CenterContainer } from "../styles/commonStyles.js";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
     navigate("/dex");
   };
 
-  const Wrapper = styled(CenterContainer)`
+  const HomeContainer = styled(CenterContainer)`
     background-color: #f9d7a1;
     flex-direction: column; /* 수직 방향 정렬 */
     text-align: center;
@@ -32,14 +32,14 @@ const Home = () => {
   `;
 
   return (
-    <Wrapper>
+    <HomeContainer>
       <img
         src="/images/pokemonTitle.png"
         alt="Pokémon Title"
         style={{ marginBottom: "20px" }}
       />
       <Button onClick={handleDexClick}>포켓몬 도감 시작하기</Button>
-    </Wrapper>
+    </HomeContainer>
   );
 };
 

@@ -1,12 +1,8 @@
 import React from "react";
-import { CenterContainer, Text } from "../styles/commonStyles.js";
+import Dashboard from "../components/Dashboard";
 
 const Dex = () => {
-  return (
-    <CenterContainer>
-      <Text>Dex</Text>
-    </CenterContainer>
-  );
+  return <Dashboard />;
 };
 
 export default Dex;
