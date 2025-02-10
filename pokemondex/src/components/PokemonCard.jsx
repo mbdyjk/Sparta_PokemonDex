@@ -45,7 +45,7 @@ const Button = styled.button`
   }
 `;
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = ({ pokemon, addPokemon, removePokemon }) => {
   return (
     <Card>
       <Image src={pokemon.img_url} alt={pokemon.korean_name} />
@@ -54,7 +54,10 @@ const PokemonCard = ({ pokemon }) => {
         <span>No.</span>
         {String(pokemon.id).padStart(3, "0")}
       </Number>
-      <Button>추가</Button>
+      {addPokemon && <Button onClick={() => addPokemon(pokemon)}>추가</Button>}
+      {removePokemon && (
+        <Button onClick={() => removePokemon(pokemon.id)}>삭제</Button>
+      )}
     </Card>
   );
 };

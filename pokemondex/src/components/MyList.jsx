@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PokemonCard from "./PokemonCard";
 
 const MyListContainer = styled.div`
   display: flex;
@@ -43,7 +44,7 @@ const Pokeball = styled.img`
   height: 50px;
 `;
 
-const MyList = () => {
+const MyList = ({ selectedPokemons, removePokemon }) => {
   const slotCount = 6;
 
   return (
@@ -53,7 +54,15 @@ const MyList = () => {
         {Array.from({ length: slotCount }).map((_, index) => (
           // key를 통해 list item 고유 식별
           <Slot key={index} count={slotCount}>
-            <Pokeball src="/images/pokeBall.png" alt="Pokeball" />
+            {selectedPokemons[index] ? (
+              <PokemonCard
+                key={selectedPokemons[index].id}
+                pokemon={selectedPokemons[index]}
+                removePokemon={removePokemon}
+              />
+            ) : (
+              <Pokeball src="/images/pokeBall.png" alt="Pokeball" />
+            )}
           </Slot>
         ))}
       </SlotContainer>
