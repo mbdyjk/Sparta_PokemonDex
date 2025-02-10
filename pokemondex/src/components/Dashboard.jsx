@@ -19,7 +19,15 @@ const Dashboard = () => {
 
   const addPokemon = (pokemon) => {
     if (selectedPokemons.length < 6) {
-      setSelectedPokemons([...selectedPokemons, pokemon]);
+      const isExist = selectedPokemons.some(
+        (selectedPokemon) => selectedPokemon.id === pokemon.id
+      );
+
+      if (isExist) {
+        alert("포켓몬이 이미 추가되어 있습니다.");
+      } else {
+        setSelectedPokemons([...selectedPokemons, pokemon]);
+      }
     } else {
       alert("포켓몬을 최대 6개까지 선택할 수 있습니다.");
     }
