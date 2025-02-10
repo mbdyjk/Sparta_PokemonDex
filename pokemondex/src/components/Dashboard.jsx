@@ -7,13 +7,17 @@ import MOCK_DATA from "../data/MOCK_DATA.js";
 const DashboardContainer = styled.div`
   padding: 20px;
   background: #f7e5be;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
 `;
 
 const Dashboard = () => {
   return (
     <DashboardContainer>
       <MyList />
-      <PokemonList />
+      <PokemonList pokemons={MOCK_DATA} />
     </DashboardContainer>
   );
 };
