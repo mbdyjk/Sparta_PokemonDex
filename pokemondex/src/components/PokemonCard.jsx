@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Card = styled.div`
   border: 1px solid lightgray;
@@ -8,6 +10,13 @@ const Card = styled.div`
   text-align: center;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const Image = styled.img`
@@ -46,18 +55,33 @@ const Button = styled.button`
 `;
 
 const PokemonCard = ({ pokemon, addPokemon, removePokemon }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/pokemon-detail?id=${pokemon.id}`, { state: pokemon });
+  };
+
+  const handleAddClick = (event) => {
+    event.stopPropagation(); // Link 이벤트 전파 방지
+    addPokemon(pokemon);
+  };
+
+  const handleRemoveClick = (event) => {
+    event.stopPropagation(); // Link 이벤트 전파 방지
+    removePokemon(pokemon.id);
+  };
+
   return (
-    <Card>
+    <Card onClick={handleCardClick}>
       <Image src={pokemon.img_url} alt={pokemon.korean_name} />
       <Name>{pokemon.korean_name}</Name>
       <Number>
         <span>No.</span>
         {String(pokemon.id).padStart(3, "0")}
       </Number>
-      {addPokemon && <Button onClick={() => addPokemon(pokemon)}>추가</Button>}
-      {removePokemon && (
-        <Button onClick={() => removePokemon(pokemon.id)}>삭제</Button>
-      )}
+
+      {addPokemon && <Button onClick={handleAddClick}>추가</Button>}
+      {removePokemon && <Button onClick={handleRemoveClick}>삭제</Button>}
     </Card>
   );
 };
