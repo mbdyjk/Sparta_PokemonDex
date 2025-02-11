@@ -7,7 +7,7 @@ const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #ffe5b4; /* 연한 주황색 배경 */
+  background-color: #ffe5b4;
 `;
 
 const DetailContainer = styled.div`
@@ -15,11 +15,8 @@ const DetailContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #f6f6f6;
-  border-radius: 10px;
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 `;
 
 const PokemonImage = styled.img`
@@ -32,18 +29,20 @@ const PokemonName = styled.h2`
   font-size: 24px;
   font-weight: bold;
   margin-top: 20px;
-  color: #ff0000; /* 빨간색 글씨 */
+  color: #ff0000;
+  margin-bottom: 10px;
 `;
 
 const PokemonInfo = styled.div`
   margin-top: 10px;
   font-size: 16px;
   color: #333;
+  margin-bottom: 10px;
 `;
 
 const BackButton = styled.button`
-  background-color: #000; /* 검은색 배경 */
-  color: white; /* 흰 글씨 */
+  background-color: #000;
+  color: white;
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -53,7 +52,7 @@ const BackButton = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background-color: #333; /* 살짝 연한 검은색 */
+    background-color: #333;
   }
 `;
 
