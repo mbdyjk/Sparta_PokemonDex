@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import PokemonCard from "./PokemonCard";
-import { usePokemon } from "../context/PokemonContext";
+import PokemonCard from "./PokemonCard.jsx";
+import { usePokemon } from "../context/PokemonContext.jsx";
+import { useSelector, useDispatch } from "react-redux";
+import { removePokemon } from "../store/pokemonSlice";
 
 const MyListContainer = styled.div`
   display: flex;
@@ -46,7 +48,11 @@ const Pokeball = styled.img`
 `;
 
 const MyList = () => {
-  const { selectedPokemons, removePokemon } = usePokemon();
+  //const { selectedPokemons, removePokemon } = usePokemon();
+  const selectedPokemons = useSelector(
+    (state) => state.pokemon.selectedPokemons
+  );
+  const dispatch = useDispatch();
 
   const slotCount = 6;
 
@@ -61,7 +67,10 @@ const MyList = () => {
               <PokemonCard
                 key={selectedPokemons[index].id}
                 pokemon={selectedPokemons[index]}
-                removePokemon={removePokemon}
+                //removePokemon={removePokemon}
+                removePokemon={() =>
+                  dispatch(removePokemon(selectedPokemons[index].id))
+                }
               />
             ) : (
               <Pokeball src="/images/pokeBall.png" alt="Pokeball" />

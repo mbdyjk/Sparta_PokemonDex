@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 import { usePokemon } from "../context/PokemonContext";
+import { useSelector, useDispatch } from "react-redux";
+import { addPokemon } from "../store/pokemonSlice";
 
 //const pokemonData = [];
 
@@ -15,7 +17,7 @@ const List = styled.div`
 `;
 
 const PokemonList = ({ pokemons }) => {
-  const { addPokemon } = usePokemon();
+  //const { addPokemon } = usePokemon();
 
   return (
     <List>
@@ -27,7 +29,8 @@ const PokemonList = ({ pokemons }) => {
         <PokemonCard
           key={pokemon.id}
           pokemon={pokemon}
-          addPokemon={addPokemon}
+          //addPokemon={addPokemon}
+          addPokemon={() => dispatch(addPokemon(selectedPokemons[index]))}
         />
       ))}
     </List>
