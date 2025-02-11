@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addPokemon, removePokemon } from "../store/pokemonSlice";
 
 const Card = styled.div`
   border: 1px solid lightgray;
@@ -54,8 +56,9 @@ const Button = styled.button`
   }
 `;
 
-const PokemonCard = ({ pokemon, addPokemon, removePokemon }) => {
+const PokemonCard = ({ pokemon }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleCardClick = () => {
     navigate(`/pokemon-detail?id=${pokemon.id}`, { state: pokemon });
@@ -63,13 +66,18 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon }) => {
 
   const handleAddClick = (event) => {
     event.stopPropagation(); // Link 이벤트 전파 방지
-    addPokemon(pokemon);
+    dispatch(addPokemon(pokemon));
   };
 
   const handleRemoveClick = (event) => {
     event.stopPropagation(); // Link 이벤트 전파 방지
-    removePokemon(pokemon.id);
+    dispatch(removePokemon(pokemon.id));
   };
+
+  const selectedPokemons = useSelector(
+    (state) => state.pokemon.selectedPokemons
+  );
+  const isSelected = selectedPokemons.some((p) => p.id === pokemon.id);
 
   return (
     <Card onClick={handleCardClick}>
@@ -80,8 +88,13 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon }) => {
         {String(pokemon.id).padStart(3, "0")}
       </Number>
 
-      {addPokemon && <Button onClick={handleAddClick}>추가</Button>}
-      {removePokemon && <Button onClick={handleRemoveClick}>삭제</Button>}
+      {/* {addPokemon && <Button onClick={handleAddClick}>추가</Button>}
+      {removePokemon && <Button onClick={handleRemoveClick}>삭제</Button>} */}
+      {isSelected ? (
+        <Button onClick={handleRemoveClick}>삭제</Button>
+      ) : (
+        <Button onClick={handleAddClick}>추가</Button>
+      )}
     </Card>
   );
 };
