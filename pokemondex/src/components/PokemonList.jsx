@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { usePokemon } from "../context/PokemonContext";
 
 //const pokemonData = [];
 
@@ -13,7 +14,9 @@ const List = styled.div`
   padding: 20px;
 `;
 
-const PokemonList = ({ pokemons, addPokemon }) => {
+const PokemonList = ({ pokemons }) => {
+  const { addPokemon } = usePokemon();
+
   return (
     <List>
       {/* sample code */}

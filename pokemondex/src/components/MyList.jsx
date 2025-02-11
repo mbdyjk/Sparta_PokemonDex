@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { usePokemon } from "../context/PokemonContext";
 
 const MyListContainer = styled.div`
   display: flex;
@@ -44,7 +45,9 @@ const Pokeball = styled.img`
   height: 50px;
 `;
 
-const MyList = ({ selectedPokemons, removePokemon }) => {
+const MyList = () => {
+  const { selectedPokemons, removePokemon } = usePokemon();
+
   const slotCount = 6;
 
   return (
