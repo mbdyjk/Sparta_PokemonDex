@@ -1,6 +1,7 @@
 # Sparta_PokemonDex
 
 Sparta_PokemonDex는 나만의 포켓몬을 선택하고 정보를 열람할 수 있는 웹 에플리케이션입니다.
+링크: https://sparta-pokemon-dex.vercel.app/
 
 ---
 
@@ -116,6 +117,4 @@ yarn dev
 
 ## 🛠️ 트러블 슈팅
 
-### 1번
-
-- **링크**:
+- **링크**: https://velog.io/@rpyjko/SpartaPokemonDex-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85
